@@ -1,0 +1,41 @@
+<form class="border px-5 pt-3 pb-3" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <h4>Information</h4>
+    <div class="form-group row mt-3">
+        <label for="">Nom : </label>
+        <div class="col-sm-10">
+            <input type="text" [(ngModel)]="this.personService.tab.nom" class="form-control" name="nom" id="nom" placeholder="Nom ... ">
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label for="">Prenom : </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="this.personService.tab.prenom" name="prenom" id="prenom" placeholder="Prenom ... ">
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label for="sexe">Sexe : </label>
+        <div class="col-sm-2">
+            <input type="radio" name="sexe" id="homme" value="Homme" class="form-check-input" [(ngModel)]="this.personService.tab.sexe">
+            <label for="homme" class="ms-3">Homme</label>
+        </div>
+        <div class="col-sm-2">
+            <input type="radio" name="sexe" id="femme" value="Femme" class="form-check-input" [(ngModel)]="this.personService.tab.sexe">
+            <label for="femme" class="ms-3">Femme</label>
+        </div>
+    </div>
+    <div class="form-group row mt-3">
+        <label for="couleur">Couleur Préférée</label>
+        <div class="col-sm-10">
+            <select name="color" id="color" class="form-select" [(ngModel)]="this.personService.tab.color">
+                <option value="bleu" selected>Bleu</option>
+                <option value="violet">Violet</option>
+                <option value="rose">Rose</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <button class="btn btn-success w-1000 form-control" type="submit">Ajouter</button>
+        </div>
+    </div>
+</form>

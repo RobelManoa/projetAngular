@@ -1,0 +1,49 @@
+<h4>Liste : </h4>
+<div class="row">
+    <div class="col-2">
+        <button type="button" class="btn btn-outline-success position-relative w-100">
+            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-success">
+                <i class="fa fa-user"></i> {{ personnes.length }}
+            </span>
+        </button>
+    </div>
+    <div class="col-6">
+        <a href="" class="btn btn-outline-danger w-100" (click)="clearAll()">Effacer tout</a>
+    </div>
+    <div class="col-2">
+        <span>Afficher les couleurs : </span>
+    </div>
+    <div class="col-2">
+        <select name="color" id="color" class="form-select w-100">
+            <option value="bleu" selected>Bleu</option>
+            <option value="violet">Violet</option>
+            <option value="rose">Rose</option>
+        </select>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Sexe</th>
+        <th>Couleur préférée</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let personne of personnes; let i = index;">
+        <th>{{ personne.id }}</th>
+        <td>{{ personne.nom }}</td>
+        <td>{{ personne.prenom }}</td>
+        <td>{{ personne.sexe }}</td>
+        <td><span class="badge rounded-pill w-100" [ngStyle]="{'background-color': getcolor(personne.color)}">{{ personne.color }}</span></td>
+        <td>
+            <a href="" class="btn btn-primary me-3 ms-3" (click)="modification(i)">M</a>
+            <a href="" class="btn btn-danger ms-3" (click)="delete(personne.id)">D</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
